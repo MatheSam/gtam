@@ -1,0 +1,6 @@
+import { Crosshair, Cog, Scissors, Check, ArrowUpRight } from 'lucide-react';
+import { company, services } from '../data/company';
+const icons = {precision:Crosshair,tools:Scissors,machine:Cog};
+export function Services() {
+ return <section id="servicos" className="section services-section"><div className="container"><div className="section-heading reveal"><div><p className="eyebrow">DO PROJETO À RECUPERAÇÃO</p><h2>A solução certa para<br/>cada desafio da sua indústria.</h2></div><p>Serviços especializados para quem precisa de precisão, qualidade e confiança no dia a dia da produção.</p></div><div className="services-grid">{services.map(service=>{const Icon=icons[service.icon];return <article key={service.number} className="service-card reveal"><div className="service-top"><Icon size={30} strokeWidth={1.5}/><span>{service.number}</span></div><h3>{service.title}</h3><p>{service.description}</p><ul>{service.items.map(item=><li key={item}><Check size={17}/><span>{item}</span></li>)}</ul><a href={company.whatsapp} target="_blank" rel="noopener noreferrer">Conversar sobre este serviço <ArrowUpRight size={18}/></a></article>})}</div><p className="materials-note">Também trabalhamos com <strong>aços especiais, alumínio e inox</strong>, além de tratamentos especiais e adequação NR12 de equipamentos.</p></div></section>;
+}
