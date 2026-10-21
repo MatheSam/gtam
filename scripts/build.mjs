@@ -1,5 +1,5 @@
 import { build, loadEnv } from 'vite';
-import { readFile, writeFile, mkdtemp, rm } from 'node:fs/promises';
+import { readFile, writeFile, mkdtemp, mkdir, rm } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
@@ -25,28 +25,44 @@ try {
   await build({ mode, base, publicDir: false, build: { ssr: 'src/entry-server.tsx', outDir: temp, emptyOutDir: true, rollupOptions: { output: { entryFileNames: 'entry-server.mjs' } } } });
   const { render, structuredData } = await import(pathToFileURL(join(temp, 'entry-server.mjs')).href);
   const htmlPath = resolve('dist/index.html');
-  let html = await readFile(htmlPath, 'utf8');
+  const template = await readFile(htmlPath, 'utf8');
+  const pages = [
+    { page: 'home', path: '', title, description },
+    { page: 'privacy', path: 'privacidade/', title: 'Política de privacidade | GTAM Ferramentaria', description: 'Saiba como a GTAM Ferramentaria trata dados pessoais no site e no atendimento. Consulte seus direitos e nosso canal de contato sobre privacidade.' },
+  ];
+  for (const entry of pages) {
+  const pageUrl = `${url}${entry.path}`;
+  let html = template.replace(/<title>.*?<\/title>/s, `<title>${escape(entry.title)}</title>`)
+    .replace(/<meta name="description" content="[^"]*"\s*\/?>/, `<meta name="description" content="${escape(entry.description)}" />`);
+  const data = entry.page === 'home' ? structuredData(url) : {
+    '@context': 'https://schema.org', '@type': 'WebPage', url: pageUrl,
+    name: entry.title, description: entry.description, inLanguage: 'pt-BR',
+    isPartOf: { '@id': `${url}#site` },
+  };
   const metadata = `
-    <link rel="canonical" href="${escape(url)}" />
+    <link rel="canonical" href="${escape(pageUrl)}" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content="GTAM Ferramentaria" />
-    <meta property="og:title" content="${escape(title)}" />
-    <meta property="og:description" content="${escape(description)}" />
-    <meta property="og:url" content="${escape(url)}" />
+    <meta property="og:title" content="${escape(entry.title)}" />
+    <meta property="og:description" content="${escape(entry.description)}" />
+    <meta property="og:url" content="${escape(pageUrl)}" />
     <meta property="og:image" content="${escape(`${url}images/hero.webp`)}" />
     <meta property="og:image:alt" content="Mordentes de selagem da GTAM Ferramentaria" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="${escape(title)}" />
-    <meta name="twitter:description" content="${escape(description)}" />
+    <meta name="twitter:title" content="${escape(entry.title)}" />
+    <meta name="twitter:description" content="${escape(entry.description)}" />
     <meta name="twitter:image" content="${escape(`${url}images/hero.webp`)}" />
-    <script type="application/ld+json">${JSON.stringify(structuredData(url)).replace(/</g, '\\u003c')}</script>
+    <script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>
   `;
   if (!html.includes('<div id="root"></div>')) throw new Error('Contêiner de pré-renderização não encontrado.');
-  html = html.replace('<div id="root"></div>', `<div id="root">${render()}</div>`).replace('</head>', `${metadata}</head>`);
-  await writeFile(htmlPath, html);
-  await writeFile(resolve('dist/sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${escape(url)}</loc></url></urlset>\n`);
+  html = html.replace('<div id="root"></div>', `<div id="root">${render(entry.page)}</div>`).replace('</head>', `${metadata}</head>`);
+  const outputDir = resolve('dist', entry.path);
+  await mkdir(outputDir, { recursive: true });
+  await writeFile(join(outputDir, 'index.html'), html);
+  }
+  await writeFile(resolve('dist/sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages.map(entry => `<url><loc>${escape(`${url}${entry.path}`)}</loc></url>`).join('')}</urlset>\n`);
   await writeFile(resolve('dist/robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${url}sitemap.xml\n`);
   console.log(`HTML pré-renderizado, metadados e sitemap gerados para ${url}`);
 } finally {

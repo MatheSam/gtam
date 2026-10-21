@@ -22,6 +22,13 @@ O build pré-renderiza o React: textos, serviços, contatos e dúvidas já estã
 mesmo sem JavaScript. O navegador hidrata esse conteúdo para ativar o menu e as animações.
 Não é necessário um servidor Node em produção nem novas dependências.
 
+A página de privacidade fica em `/privacidade/` (ou `/gtam/privacidade/` no GitHub
+Pages). O link no rodapé abre em outra aba. O build gera seu próprio
+`privacidade/index.html`, com conteúdo pré-renderizado e metadados, permitindo
+acesso direto e atualização da página sem configurar redirecionamentos no servidor.
+O texto está em `src/pages/Privacy.tsx` e deve acompanhar mudanças no atendimento,
+na hospedagem e nas ferramentas de coleta de dados.
+
 Depois de gerar o site, valide os artefatos com `npm run check:seo`.
 
 Consulte [SEO e Google Ads](docs/seo-e-google-ads.md) para configurar a URL de produção,

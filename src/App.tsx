@@ -11,4 +11,5 @@ import { Partners } from './sections/Partners';
 import { Equipment } from './sections/Equipment';
 import { Sustainability } from './sections/Sustainability';
 import { useReveal } from './hooks/useReveal';
-export default function App(){useReveal();useContactEvents();return <><a href="#conteudo" className="skip-link">Ir para o conteúdo</a><Header/><main id="conteudo"><Hero/><Partners/><About/><Services/><Equipment/><Work/><Sustainability/><Faq/><Contact/></main><Footer/></>}
+import { Privacy } from './pages/Privacy';
+export default function App({ page = 'home' }: { page?: 'home' | 'privacy' }){useReveal();useContactEvents();if(page === 'privacy') return <Privacy/>;return <><a href="#conteudo" className="skip-link">Ir para o conteúdo</a><Header/><main id="conteudo"><Hero/><Partners/><About/><Services/><Equipment/><Work/><Sustainability/><Faq/><Contact/></main><Footer/></>}
