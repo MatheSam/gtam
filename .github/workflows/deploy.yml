@@ -31,7 +31,11 @@ jobs:
       - name: Instalar dependências
         run: npm ci
       - name: Gerar site
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
         run: npm run build -- --mode github
+      - name: Validar HTML e SEO
+        run: npm run check:seo
       - name: Configurar Pages
         uses: actions/configure-pages@v5
       - name: Enviar arquivos
