@@ -5,5 +5,8 @@ import { About } from './sections/About';
 import { Services } from './sections/Services';
 import { Work } from './sections/Work';
 import { Contact } from './sections/Contact';
+import { Partners } from './sections/Partners';
+import { Equipment } from './sections/Equipment';
+import { Sustainability } from './sections/Sustainability';
 import { useReveal } from './hooks/useReveal';
-export default function App(){useReveal();return <><a href="#conteudo" className="skip-link">Ir para o conteúdo</a><Header/><main id="conteudo"><Hero/><About/><Services/><Work/><Contact/></main><Footer/></>}
+export default function App(){useReveal();return <><a href="#conteudo" className="skip-link">Ir para o conteúdo</a><Header/><main id="conteudo"><Hero/><Partners/><About/><Services/><Equipment/><Work/><Sustainability/><Contact/></main><Footer/></>}
