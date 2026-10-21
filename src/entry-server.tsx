@@ -2,8 +2,8 @@ import { renderToString } from 'react-dom/server';
 import App from './App';
 import { company, services } from './data/company';
 
-export function render() {
-  return renderToString(<App />);
+export function render(page: 'home' | 'privacy' = 'home') {
+  return renderToString(<App page={page} />);
 }
 
 export function structuredData(url: string) {

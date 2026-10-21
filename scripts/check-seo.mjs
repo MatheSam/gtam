@@ -34,4 +34,21 @@ for (const match of html.matchAll(/(?:src|href)="([^"#]+)"/g)) {
   if (!path.startsWith(base) || path.startsWith('//')) continue;
   await access(resolve('dist', path.slice(base.length)));
 }
-console.log(`SEO validado: HTML completo, H1 único, âncoras, arquivos, canonical, sitemap e JSON-LD (${canonical}).`);
+const privacy = await readFile('dist/privacidade/index.html', 'utf8');
+const privacyUrl = `${canonical}privacidade/`;
+assert.match(privacy, /<h1>Política de privacidade<\/h1>/);
+assert.equal((privacy.match(/<h1[ >]/g) || []).length, 1);
+assert.ok(privacy.includes(`<link rel="canonical" href="${privacyUrl}"`));
+assert.ok(privacy.includes(`property="og:url" content="${privacyUrl}"`));
+assert.ok(sitemap.includes(`<loc>${privacyUrl}</loc>`));
+assert.ok(html.includes(`href="${base}privacidade/" target="_blank" rel="noopener noreferrer"`));
+assert.ok(privacy.includes(`href="${base}"`), 'A política deve oferecer retorno à página inicial.');
+const privacyIds = new Set([...privacy.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]));
+for (const match of privacy.matchAll(/href="#([^"]+)"/g)) assert.ok(privacyIds.has(match[1]), `Âncora inexistente na política: ${match[1]}`);
+for (const match of privacy.matchAll(/(?:src|href)="([^"#]+)"/g)) {
+  const path = match[1].split('#')[0];
+  if (!path.startsWith(base) || path.startsWith('//')) continue;
+  await access(resolve('dist', path.slice(base.length)));
+}
+assert.doesNotMatch(privacy, /<div id="root"><\/div>|%BASE_URL%/);
+console.log(`SEO validado: página inicial e privacidade, HTML completo, H1 único, âncoras, arquivos, canonical, sitemap e JSON-LD (${canonical}).`);
