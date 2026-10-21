@@ -18,6 +18,16 @@ npm run preview
 
 O build estático fica em `dist/`. Pode ser hospedado em qualquer servidor de arquivos estáticos.
 
+O build pré-renderiza o React: textos, serviços, contatos e dúvidas já estão no HTML,
+mesmo sem JavaScript. O navegador hidrata esse conteúdo para ativar o menu e as animações.
+Não é necessário um servidor Node em produção nem novas dependências.
+
+Depois de gerar o site, valide os artefatos com `npm run check:seo`.
+
+Consulte [SEO e Google Ads](docs/seo-e-google-ads.md) para configurar a URL de produção,
+Search Console e mensuração de contatos. `SITE_URL` em `.env.local` permite mudar de
+domínio; no GitHub Actions, use a variável de repositório `SITE_URL`.
+
 ## GitHub Pages
 
 O workflow `.github/workflows/deploy.yml` publica a cada push na `main`.
