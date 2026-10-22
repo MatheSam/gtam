@@ -6,6 +6,7 @@ import { contentRoutes } from './data/routes';
 export const sitePages = [
   { page: 'home', path: '', title: 'Ferramentaria em São José dos Pinhais | GTAM', description: 'Ferramentaria de precisão em São José dos Pinhais, PR. Fabricação e recuperação de mordentes, facas industriais e máquinas sob medida. Solicite orçamento.' },
   { page: 'privacy', path: 'privacidade/', title: 'Política de privacidade | GTAM Ferramentaria', description: 'Saiba como a GTAM Ferramentaria trata dados pessoais no site e no atendimento. Consulte seus direitos e nosso canal de contato sobre privacidade.' },
+  { page: 'contact', path: 'contato/', title: 'Contato | GTAM Ferramentaria', description: 'Fale com a GTAM Ferramentaria, consulte nossos canais de atendimento e veja no mapa como chegar à unidade em São José dos Pinhais, PR.' },
   ...contentRoutes.map(route => ({ page: route.id, path: route.path, title: route.title, description: route.description })),
 ];
 

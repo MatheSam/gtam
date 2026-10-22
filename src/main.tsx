@@ -7,6 +7,7 @@ import { routeFromPath } from './data/routes';
 const root = document.getElementById('root')!;
 const page = routeFromPath(window.location.pathname, import.meta.env.BASE_URL);
 if (page === 'privacy') document.title = 'Política de privacidade | GTAM Ferramentaria';
+if (page === 'contact') document.title = 'Contato | GTAM Ferramentaria';
 const app = <React.StrictMode><App page={page} /></React.StrictMode>;
 if (root.hasChildNodes()) ReactDOM.hydrateRoot(root, app);
 else ReactDOM.createRoot(root).render(app);

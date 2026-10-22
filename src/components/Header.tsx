@@ -3,7 +3,7 @@ import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { Brand } from './Brand';
 import { company } from '../data/company';
 const base = import.meta.env.BASE_URL;
-const links = [['A GTAM', `${base}#sobre`], ['Soluções', `${base}solucoes/`], ['Tecnologia', `${base}#tecnologia`], ['Máquinas', `${base}maquinas/`], ['Parceiros', `${base}parceiros/`], ['Clientes e homologações', `${base}clientes/`]];
+const links = [['A GTAM', `${base}#sobre`], ['Soluções', `${base}solucoes/`], ['Tecnologia', `${base}#tecnologia`], ['Máquinas', `${base}maquinas/`], ['Parceiros', `${base}parceiros/`], ['Clientes e homologações', `${base}clientes/`], ['Contato', `${base}contato/`]];
 export function Header() {
  const [open, setOpen] = useState(false);
  const [compact, setCompact] = useState(false);

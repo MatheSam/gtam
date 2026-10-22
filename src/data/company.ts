@@ -8,7 +8,7 @@ export const company = {
   address: 'R. Faustino Sabotta, 345 — Zacarias Pena',
   city: 'São José dos Pinhais — PR',
   cep: '83020-840',
-  maps: 'https://www.google.com/maps/search/?api=1&query=R.%20Faustino%20Sabotta%2C%20345%20-%20Zacarias%20Pena%2C%20S%C3%A3o%20Jos%C3%A9%20dos%20Pinhais%20-%20PR%2C%2083020-840',
+  maps: 'https://www.google.com/maps/place/GTAM+FERRAMENTARIA+LTDA/@-25.5724556,-49.222131,17z/data=!4m10!1m2!2m1!1sR.+Faustino+Sabotta,+345+-+Zacarias+Pena,+S%C3%A3o+Jos%C3%A9+dos+Pinhais+-+PR,+83020-840!3m6!1s0x94dcf0913d010693:0x5b57562646480d83!8m2!3d-25.5724556!4d-49.2173674!15sClBSLiBGYXVzdGlubyBTYWJvdHRhLCAzNDUgLSBaYWNhcmlhcyBQZW5hLCBTw6NvIEpvc8OpIGRvcyBQaW5oYWlzIC0gUFIsIDgzMDIwLTg0MJIBEXRvb2xfbWFudWZhY3R1cmVy4AEA!16s%2Fg%2F1tkr0f0m?entry=ttu&g_ep=EgoyMDI2MTAxOS4wIKXMDSoASAFQAw%3D%3D',
 };
 export const services = [
   { id: 'ferramentaria-de-precisao', number: '01', title: 'Ferramentaria de precisão', description: 'Confecção e recuperação de ferramentas de precisão, moldes, punções e matrizes em São José dos Pinhais, PR, conforme as necessidades do seu projeto.', items: ['Ferramentas progressivas e estampos CDR', 'Moldes plásticos, punções e matrizes', 'Dispositivos de verificação e berços de apoio'], icon: 'precision' },

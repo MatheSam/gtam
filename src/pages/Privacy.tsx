@@ -28,8 +28,8 @@ export function Privacy() {
         <div className="container">
           <p className="eyebrow">TRANSPARÊNCIA NO ATENDIMENTO</p>
           <h1>Política de privacidade</h1>
-          <p>Saiba como a GTAM Ferramentaria trata dados pessoais na navegação pelo site e no contato para informações e orçamentos.</p>
-          <p className="privacy-updated">Última atualização: <time dateTime="2026-10-21">21 de outubro de 2026</time></p>
+          <p>Saiba como a GTAM Ferramentaria trata dados pessoais na navegação pelo site, no contato para informações e orçamentos e em manifestações de interesse profissional.</p>
+          <p className="privacy-updated">Última atualização: <time dateTime="2026-10-22">22 de outubro de 2026</time></p>
         </div>
       </div>
       <div className="container privacy-layout">
@@ -45,18 +45,19 @@ export function Privacy() {
           </section>
           <section id="dados">
             <h2>2. Quais dados utilizamos e por quê</h2>
-            <p>O site é institucional e não possui formulário de cadastro ou de orçamento. Você pode iniciar uma conversa por WhatsApp, telefone ou e-mail.</p>
-            <p>Nesse atendimento, podemos receber seu nome, telefone, e-mail, empresa que representa e informações enviadas sobre o serviço, como medidas, desenhos e especificações de peças. Envie apenas os dados necessários para avaliar sua solicitação.</p>
+            <p>A página de contato tem um formulário com campos para nome, e-mail, telefone, empresa, assunto e mensagem. Quando o assunto for “Trabalhe conosco”, ele também permite selecionar um currículo em PDF. Nesta versão, o envio é uma simulação: os dados e o arquivo são verificados no seu navegador, a tela é limpa e aparece uma confirmação, mas nada é transmitido à GTAM ou armazenado pelo formulário.</p>
+            <p>Para falar de fato com a GTAM ou se candidatar a uma oportunidade, use os canais de WhatsApp, telefone ou e-mail. Nessas comunicações, podemos receber seu nome, contatos, empresa, informações sobre o serviço e, em manifestações de interesse profissional, informações sobre sua experiência e currículo. Envie apenas os dados necessários para a finalidade da conversa.</p>
             <ul>
               <li><strong>Atendimento e orçamento:</strong> usamos as informações para responder, avaliar a necessidade apresentada e preparar propostas. Quando relacionados a uma contratação solicitada por você, esses usos se apoiam nos procedimentos preliminares e na execução de contrato.</li>
               <li><strong>Prestação do serviço:</strong> os dados necessários podem ser usados para combinar condições, executar o serviço e manter a comunicação sobre o pedido, com base na execução de contrato.</li>
+              <li><strong>Oportunidades profissionais:</strong> informações e currículos enviados voluntariamente por e-mail podem ser usados para avaliar compatibilidade com oportunidades e entrar em contato sobre processos seletivos da GTAM. O arquivo escolhido no formulário de contato não é enviado nesta versão.</li>
               <li><strong>Obrigações legais e defesa de direitos:</strong> registros podem ser mantidos para cumprir obrigações legais ou regulatórias e exercer direitos em processos, quando aplicável.</li>
             </ul>
             <p>Se uma finalidade depender de consentimento, ele deverá ser solicitado de forma específica. A simples navegação no site não equivale a autorizar qualquer uso dos seus dados.</p>
           </section>
           <section id="compartilhamento">
             <h2>3. Compartilhamento e serviços de terceiros</h2>
-            <p>Os links de WhatsApp e Google Maps levam a serviços externos. Ao utilizá-los, o tratamento realizado por esses serviços segue também suas próprias políticas de privacidade. O mesmo se aplica ao provedor de e-mail utilizado na comunicação.</p>
+            <p>Os links de WhatsApp e Google Maps, além do mapa incorporado do Google Maps na página de contato, levam a serviços externos. Ao utilizá-los ou carregar o mapa, o tratamento realizado por esses serviços segue também suas próprias políticas de privacidade. O mesmo se aplica ao provedor de e-mail utilizado na comunicação.</p>
             <p>A infraestrutura de hospedagem e os serviços de comunicação podem processar dados técnicos ou de contato necessários ao seu funcionamento. Informações também podem ser fornecidas a autoridades quando houver obrigação legal ou determinação válida.</p>
             <p>Alguns fornecedores podem processar dados fora do Brasil. Quando houver transferência internacional sob responsabilidade da GTAM, devem ser observados os mecanismos e as garantias exigidos pela LGPD e pela regulamentação aplicável.</p>
           </section>
@@ -68,7 +69,7 @@ export function Privacy() {
           </section>
           <section id="conservacao">
             <h2>5. Por quanto tempo os dados são conservados</h2>
-            <p>O tempo de conservação depende da finalidade: atendimento da solicitação, negociação do orçamento, execução do serviço e cumprimento dos prazos legais aplicáveis. Registros necessários ao exercício de direitos podem ser conservados durante os respectivos prazos.</p>
+            <p>O tempo de conservação depende da finalidade: atendimento da solicitação, negociação do orçamento, execução do serviço, avaliação de currículos recebidos por e-mail e cumprimento dos prazos legais aplicáveis. Registros necessários ao exercício de direitos podem ser conservados durante os respectivos prazos.</p>
             <p>Encerrada a finalidade e inexistindo fundamento para conservação, os dados devem ser eliminados ou anonimizados. Para informações sobre um registro específico, utilize nosso canal de contato.</p>
           </section>
           <section id="direitos">
