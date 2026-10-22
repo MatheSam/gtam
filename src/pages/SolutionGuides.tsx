@@ -11,7 +11,7 @@ function Sources({ items }: { items: { label: string; href: string }[] }) {
 }
 
 function GuideShell({ children, note, sources }: { children: ReactNode; note: string; sources: { label: string; href: string }[] }) {
-  return <section className="solution-guide" aria-label="Guia técnico da solução">{children}<aside className="solution-guide-note"><strong>O que ajuda na avaliação</strong><p>{note}</p></aside><Sources items={sources}/></section>;
+  return <section className="solution-guide" aria-label="Guia técnico da solução">{children}<aside className="solution-guide-note reveal solution-scroll-reveal"><strong>O que ajuda na avaliação</strong><p>{note}</p></aside><Sources items={sources}/></section>;
 }
 
 export function FixtureGuide() {
@@ -93,7 +93,7 @@ export function RecoveryGuide() {
       { title: 'Ajustes e superfícies', text: 'Assentos de rolamento, sedes de vedação, furos e faces de encosto trabalham em conjunto. Medidas e tolerâncias devem vir do desenho ou requisito aplicável.' },
       { title: 'Causa da falha', text: 'Lubrificação, desalinhamento, carga, contaminação ou montagem podem contribuir para a falha. Considerar a causa ajuda a não tratar apenas o sintoma.' },
     ]}/>
-    <div className="solution-guide-callout"><strong>Recuperar ou substituir?</strong><p>A decisão considera a integridade da peça, material, função, dimensões críticas, método disponível e risco de serviço. O guia não promete recuperação: cada componente precisa ser avaliado, e casos críticos podem requerer aprovação de engenharia ou do fabricante.</p></div>
+    <div className="solution-guide-callout reveal solution-scroll-reveal"><strong>Recuperar ou substituir?</strong><p>A decisão considera a integridade da peça, material, função, dimensões críticas, método disponível e risco de serviço. O guia não promete recuperação: cada componente precisa ser avaliado, e casos críticos podem requerer aprovação de engenharia ou do fabricante.</p></div>
   </GuideShell>;
 }
 
@@ -122,6 +122,6 @@ export function NozzleGuide() {
       { title: 'Gotejamento ou fios de material', text: 'Podem envolver geometria do bico, resina e regulagem do processo. O sintoma sozinho não define que o bico precise ser substituído.' },
       { title: 'Obstrução ou fluxo irregular', text: 'Resíduo, degradação, orifício danificado ou condição de processo podem ser investigados. A inspeção deve considerar limpeza e histórico de uso.' },
     ]}/>
-    <div className="solution-guide-callout"><strong>Atenção ao componente correto</strong><p>“Bico da injetora” e “bico de canal quente” podem ter nomes parecidos, mas ficam em partes diferentes do sistema. A identificação do equipamento evita especificar uma peça incompatível.</p></div>
+    <div className="solution-guide-callout reveal solution-scroll-reveal"><strong>Atenção ao componente correto</strong><p>“Bico da injetora” e “bico de canal quente” podem ter nomes parecidos, mas ficam em partes diferentes do sistema. A identificação do equipamento evita especificar uma peça incompatível.</p></div>
   </GuideShell>;
 }

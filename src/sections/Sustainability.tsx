@@ -11,12 +11,19 @@ export function Sustainability() {
     <div className="container">
       <div className="esg-intro reveal">
         <div><p className="eyebrow">COMPROMISSO COM O FUTURO</p><h2 id="esg-title">Precisão no presente.<br/>Responsabilidade para o futuro.</h2></div>
-        <div><span className="esg-status"><span aria-hidden="true"/>Validação ESG em andamento</span><p>A GTAM está em processo de validação ESG, que reúne os pilares ambiental, social e de governança. Esse caminho busca fortalecer práticas responsáveis e a melhoria contínua da nossa gestão.</p></div>
+        <div><span className="esg-status"><span aria-hidden="true"/>Relatório ESG em elaboração</span><p>A GTAM está elaborando seu primeiro relatório de sustentabilidade com base nas Normas GRI. O trabalho organiza os temas ambientais, sociais e de governança relevantes para a empresa e seus públicos.</p></div>
       </div>
       <div className="esg-grid">
         {pillars.map(({ icon: Icon, label, title, text }) => <article className="esg-card reveal" key={label}><Icon size={28} strokeWidth={1.5} aria-hidden="true"/><p className="esg-label">{label}</p><h3>{title}</h3><p>{text}</p></article>)}
       </div>
-      <p className="esg-note reveal">A validação pode ajudar a demonstrar compromissos, orientar melhorias e fortalecer a confiança de clientes e parceiros. O processo está em andamento; a certificação ainda não foi concluída.</p>
+      <div className="esg-report reveal">
+        <div>
+          <p className="esg-label">RELATÓRIO DE SUSTENTABILIDADE</p>
+          <h3>Conheça o diagnóstico ESG da GTAM</h3>
+          <p>O diagnóstico de dupla materialidade climática e a estruturação do relatório são desenvolvidos com a <strong>Redwood Estratégia &amp; Impacto</strong>. O relatório está em elaboração.</p>
+        </div>
+        <a className="esg-report-link" href="https://gtambench.netlify.app/#" target="_blank" rel="noopener noreferrer">Ver relatório ESG<span aria-hidden="true">↗</span><span className="sr-only"> (abre em outra aba)</span></a>
+      </div>
     </div>
   </section>;
 }

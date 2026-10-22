@@ -27,5 +27,6 @@ export function routeFromPath(pathname: string, baseUrl = '/') {
   const normalized = relative.replace(/index\.html$/, '').replace(/^\/+|\/+$/g, '');
   if (!normalized) return 'home';
   if (normalized === 'privacidade') return 'privacy';
+  if (normalized === 'contato') return 'contact';
   return contentRoutes.find(route => route.path.replace(/\/+$/, '') === normalized)?.id ?? 'not-found';
 }
