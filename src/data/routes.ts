@@ -1,7 +1,7 @@
 export type ContentRoute = {
   id: string;
   path: string;
-  type: 'machines' | 'machine' | 'solutions' | 'solution' | 'partners' | 'clients';
+  type: 'machines' | 'machine' | 'solutions' | 'solution' | 'partners' | 'clients' | 'esg';
   title: string;
   description: string;
 };
@@ -19,6 +19,7 @@ export const contentRoutes: ContentRoute[] = [
   { id: 'solution-injection-nozzles', path: 'solucoes/bicos-ponteiras-injetoras/', type: 'solution', title: 'Bicos e ponteiras para injetoras | GTAM', description: 'Usinagem de bicos e ponteiras para injetoras.' },
   { id: 'partners', path: 'parceiros/', type: 'partners', title: 'Parceiros e tecnologias | GTAM', description: 'Conheça os parceiros de tecnologia e fornecedores da GTAM.' },
   { id: 'clients', path: 'clientes/', type: 'clients', title: 'Clientes e homologações | GTAM', description: 'Conheça setores atendidos, trabalhos realizados e homologações da GTAM.' },
+  { id: 'esg', path: 'esg/', type: 'esg', title: 'ESG na GTAM | GTAM Ferramentaria', description: 'Entenda o que é ESG, como esse olhar apoia resultados responsáveis e conheça o benchmark e o relatório em elaboração pela GTAM.' },
 ];
 
 export function routeFromPath(pathname: string, baseUrl = '/') {
