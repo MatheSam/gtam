@@ -19,10 +19,10 @@ export function Sustainability() {
       <div className="esg-report reveal">
         <div>
           <p className="esg-label">RELATÓRIO DE SUSTENTABILIDADE</p>
-          <h3>Conheça o diagnóstico ESG da GTAM</h3>
-          <p>O diagnóstico de dupla materialidade climática e a estruturação do relatório são desenvolvidos com a <strong>Redwood Estratégia &amp; Impacto</strong>. O relatório está em elaboração.</p>
+          <h3>Conheça o benchmark e o diagnóstico ESG da GTAM</h3>
+          <p>O diagnóstico de dupla materialidade climática e a estruturação do relatório são desenvolvidos com a <a href="https://redwood.red/" target="_blank" rel="noopener noreferrer"><strong>Redwood Estratégia &amp; Impacto</strong></a>. O relatório está em elaboração.</p>
         </div>
-        <a className="esg-report-link" href="https://gtambench.netlify.app/#" target="_blank" rel="noopener noreferrer">Ver relatório ESG<span aria-hidden="true">↗</span><span className="sr-only"> (abre em outra aba)</span></a>
+        <a className="esg-report-link" href="https://gtambench.netlify.app/#" target="_blank" rel="noopener noreferrer">Ver benchmark GTAM<span aria-hidden="true">↗</span><span className="sr-only"> (abre em outra aba)</span></a>
       </div>
     </div>
   </section>;
