@@ -134,8 +134,32 @@
 }
 
 .header-slogan { display: none; }
+@media (min-width: 1101px) {
+  .header-brand-group { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; }
+  .header-slogan {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    flex: 0 0 auto;
+    min-height: 50px;
+    padding-left: 10px;
+    border-left: 2px solid var(--color-brand);
+    color: #676b70;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .header-slogan strong { color: #282b2e; font-weight: 650; }
+}
+@media (min-width: 1101px) and (max-width: 1250px) {
+  .header-inner { gap: 14px; }
+  .header-brand-group { gap: 8px; }
+  .desktop-nav { gap: 16px; font-size: 0.9rem; }
+  .header-slogan { padding-left: 8px; font-size: 0.85rem; }
+}
 @media (max-width: 800px) {
   .header-inner { gap: 12px; }
+  .header-brand-group { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }
   .header-slogan {
     display: block;
     flex: 1;
@@ -151,6 +175,7 @@
 }
 @media (max-width: 360px) {
   .header-inner { gap: 8px; }
+  .header-brand-group { gap: 8px; }
   .header-slogan { padding-left: 8px; font-size: 0.9rem; }
   .menu-toggle { padding: 8px; }
 }
@@ -170,3 +195,5 @@
 .desktop-nav a.esg-nav-link,.mobile-nav a.esg-nav-link{display:inline-flex;align-items:center;gap:6px;transition:color .2s}.desktop-nav a.esg-nav-link::after,.mobile-nav a.esg-nav-link::after{background:#315c44}.esg-nav-link:hover,.esg-nav-link:focus-visible{color:#315c44!important}.esg-nav-tree{width:16px;height:16px;flex:none;overflow:visible;stroke:#315c44;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform:scaleY(.2);transform-origin:50% 100%;transition:opacity .15s}.esg-nav-tree-trunk{stroke-dasharray:24;stroke-dashoffset:24}.esg-nav-tree-crown{fill:#dceadf;stroke-dasharray:20;stroke-dashoffset:20;transform-box:fill-box;transform-origin:center;transform:scale(0)}.esg-nav-link:hover .esg-nav-tree,.esg-nav-link:focus-visible .esg-nav-tree{opacity:1;animation:esg-nav-tree-grow .55s cubic-bezier(.2,.75,.3,1) forwards}.esg-nav-link:hover .esg-nav-tree-trunk,.esg-nav-link:focus-visible .esg-nav-tree-trunk{animation:esg-nav-tree-draw .55s ease-out forwards}.esg-nav-link:hover .esg-nav-tree-crown,.esg-nav-link:focus-visible .esg-nav-tree-crown{animation:esg-nav-crown-grow .45s cubic-bezier(.2,.75,.3,1) forwards}.esg-nav-link:hover .crown-left,.esg-nav-link:focus-visible .crown-left{animation-delay:.2s}.esg-nav-link:hover .crown-right,.esg-nav-link:focus-visible .crown-right{animation-delay:.3s}.esg-nav-link:hover .crown-top,.esg-nav-link:focus-visible .crown-top{animation-delay:.38s}
 @keyframes esg-nav-tree-grow{to{transform:scaleY(1)}}@keyframes esg-nav-tree-draw{to{stroke-dashoffset:0}}@keyframes esg-nav-crown-grow{to{stroke-dashoffset:0;transform:scale(1)}}
 @media(prefers-reduced-motion:reduce){.esg-nav-tree,.esg-nav-tree-trunk,.esg-nav-tree-crown{animation:none!important;transition:none}.esg-nav-tree{opacity:1;transform:none}.esg-nav-tree-trunk,.esg-nav-tree-crown{stroke-dashoffset:0;transform:none}}
+/* Marca GTAM fornecida em img/logos. */
+.brand{align-items:center}.brand-logo{display:block;width:100%;height:auto;object-fit:contain}.brand-light{padding:4px 6px;background:#fff;border-radius:2px}
