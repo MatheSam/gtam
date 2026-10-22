@@ -7,9 +7,17 @@ import { About } from './sections/About';
 import { Services } from './sections/Services';
 import { Work } from './sections/Work';
 import { Contact } from './sections/Contact';
-import { Partners } from './sections/Partners';
 import { Equipment } from './sections/Equipment';
 import { Sustainability } from './sections/Sustainability';
 import { useReveal } from './hooks/useReveal';
 import { Privacy } from './pages/Privacy';
-export default function App({ page = 'home' }: { page?: 'home' | 'privacy' }){useReveal();useContactEvents();if(page === 'privacy') return <Privacy/>;return <><a href="#conteudo" className="skip-link">Ir para o conteúdo</a><Header/><main id="conteudo"><Hero/><Partners/><About/><Services/><Equipment/><Work/><Sustainability/><Faq/><Contact/></main><Footer/></>}
+import { ContentRoute } from './pages/ContentRoute';
+import { MachinesPage } from './pages/Machines';
+import { SolutionsPage } from './pages/Solutions';
+import { PartnersPage } from './pages/PartnersPage';
+import { ClientsPage } from './pages/ClientsPage';
+import { TechnologyFlow } from './sections/TechnologyFlow';
+import { ProductionJourney } from './sections/ProductionJourney';
+import { DifferentialsJourney } from './sections/DifferentialsJourney';
+import { HomeSolutions } from './sections/HomeSolutions';
+export default function App({ page = 'home' }: { page?: string }){useReveal();useContactEvents();if(page === 'privacy') return <Privacy/>;if(page === 'machines' || page.startsWith('machine-')) return <MachinesPage page={page}/>;if(page === 'solutions' || page.startsWith('solution-')) return <SolutionsPage page={page}/>;if(page === 'partners') return <PartnersPage/>;if(page === 'clients') return <ClientsPage/>;if(page !== 'home') return <ContentRoute page={page}/>;return <><a href="#conteudo" className="skip-link">Ir para o conteúdo</a><Header/><main id="conteudo"><Hero/><TechnologyFlow/><HomeSolutions/><ProductionJourney/><DifferentialsJourney/><About/><Services/><Equipment/><Work/><Sustainability/><Faq/><Contact/></main><Footer/></>}

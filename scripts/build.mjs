@@ -23,14 +23,10 @@ await build({ mode, base });
 const temp = await mkdtemp(resolve('.seo-render-'));
 try {
   await build({ mode, base, publicDir: false, build: { ssr: 'src/entry-server.tsx', outDir: temp, emptyOutDir: true, rollupOptions: { output: { entryFileNames: 'entry-server.mjs' } } } });
-  const { render, structuredData } = await import(pathToFileURL(join(temp, 'entry-server.mjs')).href);
+  const { render, structuredData, sitePages } = await import(pathToFileURL(join(temp, 'entry-server.mjs')).href);
   const htmlPath = resolve('dist/index.html');
   const template = await readFile(htmlPath, 'utf8');
-  const pages = [
-    { page: 'home', path: '', title, description },
-    { page: 'privacy', path: 'privacidade/', title: 'Política de privacidade | GTAM Ferramentaria', description: 'Saiba como a GTAM Ferramentaria trata dados pessoais no site e no atendimento. Consulte seus direitos e nosso canal de contato sobre privacidade.' },
-  ];
-  for (const entry of pages) {
+  for (const entry of sitePages) {
   const pageUrl = `${url}${entry.path}`;
   let html = template.replace(/<title>.*?<\/title>/s, `<title>${escape(entry.title)}</title>`)
     .replace(/<meta name="description" content="[^"]*"\s*\/?>/, `<meta name="description" content="${escape(entry.description)}" />`);
@@ -62,7 +58,7 @@ try {
   await mkdir(outputDir, { recursive: true });
   await writeFile(join(outputDir, 'index.html'), html);
   }
-  await writeFile(resolve('dist/sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages.map(entry => `<url><loc>${escape(`${url}${entry.path}`)}</loc></url>`).join('')}</urlset>\n`);
+  await writeFile(resolve('dist/sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitePages.map(entry => `<url><loc>${escape(`${url}${entry.path}`)}</loc></url>`).join('')}</urlset>\n`);
   await writeFile(resolve('dist/robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${url}sitemap.xml\n`);
   console.log(`HTML pré-renderizado, metadados e sitemap gerados para ${url}`);
 } finally {

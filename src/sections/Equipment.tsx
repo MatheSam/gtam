@@ -1,10 +1,9 @@
-import { ArrowUpRight, Check } from 'lucide-react';
-import { company } from '../data/company';
+import { ArrowUpRight } from 'lucide-react';
 
 const equipment = [
-  { title: 'Fresadora CNC', text: 'Usinagem com comando numérico para executar geometrias com precisão e repetibilidade.' },
-  { title: 'Fresadora convencional (manual)', text: 'Versatilidade para ajustes, desenvolvimento e usinagem de peças sob medida.' },
-  { title: 'Torno', text: 'Torneamento de peças cilíndricas, eixos e componentes conforme a necessidade de cada projeto.' },
+  { title: 'Centro de usinagem vertical CNC Okada 855S', text: 'Mesa de 1.000 × 500 mm, cursos X/Y/Z de 800 × 550 × 550 mm e comando Mitsubishi M80.', path: 'maquinas/okada-855s/' },
+  { title: 'Torno mecânico Clever L-1860', text: 'Ø 460 mm sobre o barramento e 1.500 mm entre pontas.', path: 'maquinas/clever-l-1860/' },
+  { title: 'Fresadora ferramenteira', text: 'Fresamento convencional, furação e ajustes.', path: 'maquinas/fresadora-ferramenteira/' },
 ];
 
 export function Equipment() {
@@ -12,7 +11,7 @@ export function Equipment() {
     <div className="container">
       <div className="section-heading reveal">
         <div><p className="eyebrow">NOSSA ESTRUTURA</p><h2 id="equipment-title">Máquinas e técnica para<br/>dar forma ao seu projeto.</h2></div>
-        <p>Trabalhamos com fresadora CNC, fresadora convencional e torno para atender diferentes necessidades de usinagem.</p>
+        <p>Conheça as máquinas da GTAM e as informações técnicas confirmadas para cada equipamento.</p>
       </div>
       <div className="equipment-layout">
         <div className="equipment-gallery reveal">
@@ -22,8 +21,8 @@ export function Equipment() {
           <p className="equipment-caption">Imagens ilustrativas de operações e ferramentas de usinagem.</p>
         </div>
         <div className="equipment-copy reveal">
-          {equipment.map(item => <article className="equipment-item" key={item.title}><Check size={21} aria-hidden="true"/><div><h3>{item.title}</h3><p>{item.text}</p></div></article>)}
-          <a className="equipment-link" href={company.whatsapp} target="_blank" rel="noopener noreferrer">Converse sobre a sua peça <ArrowUpRight size={19}/></a>
+          {equipment.map(item => <a className="equipment-item equipment-item-link" href={`${import.meta.env.BASE_URL}${item.path}`} key={item.title}><div><h3>{item.title}</h3><p>{item.text}</p><span>Ver máquina <ArrowUpRight size={16}/></span></div></a>)}
+          <a className="equipment-link" href={`${import.meta.env.BASE_URL}maquinas/`}>Ver todas as máquinas <ArrowUpRight size={19}/></a>
         </div>
       </div>
     </div>
