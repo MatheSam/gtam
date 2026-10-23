@@ -1,9 +1,9 @@
 import { ArrowUpRight } from 'lucide-react';
 
 const equipment = [
-  { title: 'Centro de usinagem vertical CNC Okada 855S', text: 'Mesa de 1.000 × 500 mm, cursos X/Y/Z de 800 × 550 × 550 mm e comando Mitsubishi M80.', path: 'maquinas/okada-855s/' },
+  { title: 'Centro de usinagem vertical CNC Okada 855S', text: 'Cursos X/Y/Z de 850 × 550 × 600 mm, 12.000 rpm e capacidade de 600 kg sobre a mesa. CAM WorkNC (Hexagon), preset e apalpador com Productivity+ (Renishaw).', path: 'maquinas/okada-855s/' },
   { title: 'Torno mecânico Clever L-1860', text: 'Ø 460 mm sobre o barramento e 1.500 mm entre pontas.', path: 'maquinas/clever-l-1860/' },
-  { title: 'Fresadora ferramenteira', text: 'Fresamento convencional, furação e ajustes.', path: 'maquinas/fresadora-ferramenteira/' },
+  { title: 'Fresadora ferramenteira', text: 'ISO 40, cursos X/Y/Z de 1.220 × 430 × 460 mm, avanço e leitura digital nos três eixos e capacidade de 450 kg sobre a mesa.', path: 'maquinas/fresadora-ferramenteira/' },
 ];
 
 export function Equipment() {
@@ -22,6 +22,7 @@ export function Equipment() {
         </div>
         <div className="equipment-copy reveal">
           {equipment.map(item => <a className="equipment-item equipment-item-link" href={`${import.meta.env.BASE_URL}${item.path}`} key={item.title}><div><h3>{item.title}</h3><p>{item.text}</p><span>Ver máquina <ArrowUpRight size={16}/></span></div></a>)}
+          <p className="equipment-partners">Contamos com parceiros em retífica plana e cilíndrica, eletroerosão e centro de usinagem para apoiar grandes demandas.</p>
           <a className="equipment-link" href={`${import.meta.env.BASE_URL}maquinas/`}>Ver todas as máquinas <ArrowUpRight size={19}/></a>
         </div>
       </div>

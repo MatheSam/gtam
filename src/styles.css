@@ -197,3 +197,25 @@
 @media(prefers-reduced-motion:reduce){.esg-nav-tree,.esg-nav-tree-trunk,.esg-nav-tree-crown{animation:none!important;transition:none}.esg-nav-tree{opacity:1;transform:none}.esg-nav-tree-trunk,.esg-nav-tree-crown{stroke-dashoffset:0;transform:none}}
 /* Marca GTAM fornecida em img/logos. */
 .brand{align-items:center}.brand-logo{display:block;width:100%;height:auto;object-fit:contain}.brand-light{padding:4px 6px;background:#fff;border-radius:2px}
+
+/* Shared link feedback and subtle calls to action. */
+main a{transition:color .2s,background .2s,box-shadow .2s,transform .2s}
+main a:not(.button):not(.esg-hero-button):hover,main a:not(.button):not(.esg-hero-button):focus-visible{color:#bd2433}
+main a svg.lucide-arrow-up-right,main a svg.lucide-arrow-right,main a svg.lucide-arrow-down,main a span[aria-hidden="true"]{transition:transform .25s}
+main a:hover svg.lucide-arrow-up-right,main a:focus-visible svg.lucide-arrow-up-right,main a:hover span[aria-hidden="true"],main a:focus-visible span[aria-hidden="true"]{transform:translate(3px,-3px)}
+main a:hover svg.lucide-arrow-right,main a:focus-visible svg.lucide-arrow-right{transform:translateX(3px)}
+main a:hover svg.lucide-arrow-down,main a:focus-visible svg.lucide-arrow-down{transform:translateY(3px)}
+.project-pulse{animation:project-glow 3.2s ease-in-out infinite}
+.project-pulse:hover,.project-pulse:focus-visible{animation-play-state:paused}
+@keyframes project-glow{0%,100%{box-shadow:0 0 0 0 #d0293900;background:#d02939}50%{box-shadow:0 0 0 5px #d0293918;background:#bd2635}}
+.esg-status>span{animation:esg-status-glow 3s ease-in-out infinite}
+@keyframes esg-status-glow{0%,100%{background:#487a58;box-shadow:0 0 0 0 #487a5800}50%{background:#83a77c;box-shadow:0 0 0 3px #487a5812}}
+.esg-more-link{display:inline-flex;align-items:center;gap:12px;color:#315c44;font-weight:650;margin-top:28px;padding-block:10px;border-bottom:1px solid #91ac99}
+main .esg-more-link:hover,main .esg-more-link:focus-visible{color:#244a35;border-color:currentColor}
+.esg-report .esg-hero-button{flex-shrink:0}
+.commitment-word{display:inline-block;min-width:13ch;border-right:1px solid currentColor;padding-right:3px;min-height:1em}
+.esg-intro .eyebrow>span[aria-hidden]{display:block}
+.experience-inline span{margin-left:.2em}
+.about-story-link{margin:24px 0 30px}
+.equipment-partners{font-size:.9375rem;color:#62686d;margin:0;padding-top:20px;border-top:1px solid #e2e4e5}
+@media(max-width:600px){.esg-report .esg-hero-button{white-space:normal;text-align:center;width:100%}.esg-intro .eyebrow{font-size:.8rem;letter-spacing:1.2px}}
