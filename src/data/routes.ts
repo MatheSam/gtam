@@ -1,12 +1,13 @@
 export type ContentRoute = {
   id: string;
   path: string;
-  type: 'machines' | 'machine' | 'solutions' | 'solution' | 'partners' | 'clients' | 'esg';
+  type: 'machines' | 'machine' | 'solutions' | 'solution' | 'partners' | 'clients' | 'esg' | 'about';
   title: string;
   description: string;
 };
 
 export const contentRoutes: ContentRoute[] = [
+  { id: 'about', path: 'sobre/', type: 'about', title: 'A GTAM | Nossa história e experiência', description: 'Conheça a história da GTAM Ferramentaria, fundada em 1º de novembro de 2010 em São José dos Pinhais, e sua atuação em moldes, usinagem e máquinas dedicadas.' },
   { id: 'machines', path: 'maquinas/', type: 'machines', title: 'Máquinas | GTAM Ferramentaria', description: 'Conheça as máquinas utilizadas pela GTAM Ferramentaria.' },
   { id: 'machine-okada-855s', path: 'maquinas/okada-855s/', type: 'machine', title: 'Centro de usinagem CNC Okada 855S | GTAM', description: 'Conheça o centro de usinagem vertical CNC Okada 855S da GTAM.' },
   { id: 'machine-clever-l-1860', path: 'maquinas/clever-l-1860/', type: 'machine', title: 'Torno mecânico Clever L-1860 | GTAM', description: 'Conheça o torno mecânico Clever L-1860 da GTAM.' },

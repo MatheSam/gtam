@@ -12,7 +12,7 @@ const questions = [
 export function Faq() {
   return <section id="duvidas" className="section faq-section" aria-labelledby="faq-title">
     <div className="container faq-layout">
-      <div><p className="eyebrow">ANTES DE SOLICITAR SEU ORÇAMENTO</p><h2 id="faq-title">Dúvidas sobre nossos<br/>serviços industriais</h2><p>Converse com a equipe da GTAM sobre a ferramenta, peça ou equipamento de que sua empresa precisa.</p><ContactButton>Falar sobre meu projeto</ContactButton></div>
+      <div><p className="eyebrow">ANTES DE SOLICITAR SEU ORÇAMENTO</p><h2 id="faq-title">Dúvidas sobre nossos<br/>serviços industriais</h2><p>Converse com a equipe da GTAM sobre a ferramenta, peça ou equipamento de que sua empresa precisa.</p><ContactButton className="project-pulse">Falar sobre meu projeto</ContactButton></div>
       <div className="faq-list">{questions.map(({ question, answer }) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
     </div>
   </section>;

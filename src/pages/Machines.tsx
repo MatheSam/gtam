@@ -20,13 +20,13 @@ type Machine = {
 const machines: Machine[] = [
   {
     id: 'machine-okada-855s', path: 'maquinas/okada-855s/', name: 'Centro de usinagem vertical CNC Okada 855S',
-    short: 'Usinagem CNC com mesa de 1.000 × 500 mm, comando Mitsubishi M80 e apalpador Renishaw.',
+    short: 'Usinagem CNC com cursos de 850 × 550 × 600 mm, 12.000 rpm, CAM WorkNC (Hexagon) e medição Renishaw.',
     image: `${import.meta.env.BASE_URL}images/illustrative/cnc-milling-cc-by-sa.jpg`, alt: 'Ferramenta removendo material em uma operação de fresamento CNC, com fluido de corte.',
     caption: 'Exemplo ilustrativo de fresamento CNC; não retrata a máquina da GTAM. Imagem mantida sem alterações.', credit: { label: 'Impressionmanufacturer, via Wikimedia Commons', href: 'https://commons.wikimedia.org/wiki/File:CNC_milling_machine.jpg', licenseLabel: 'Licença CC BY-SA 4.0', licenseHref: 'https://creativecommons.org/licenses/by-sa/4.0/' },
     facts: [
-      { label: 'Mesa', value: '1.000 × 500 mm' }, { label: 'Curso do eixo X', value: '800 mm' },
-      { label: 'Curso do eixo Y', value: '550 mm' }, { label: 'Curso do eixo Z', value: '550 mm' },
-      { label: 'Comando', value: 'Mitsubishi M80' }, { label: 'Medição na máquina', value: 'Apalpador Renishaw com software Productivity+' },
+      { label: 'Mesa', value: '1.000 × 500 mm' }, { label: 'Curso do eixo X', value: '850 mm' },
+      { label: 'Curso do eixo Y', value: '550 mm' }, { label: 'Curso do eixo Z', value: '600 mm' },
+      { label: 'Rotação máxima', value: '12.000 rpm' }, { label: 'Peso admissível sobre a mesa', value: '600 kg' }, { label: 'Software CAM', value: 'WorkNC (Hexagon)' }, { label: 'Preparação de ferramentas', value: 'Preset' }, { label: 'Comando', value: 'Mitsubishi M80' }, { label: 'Medição na máquina', value: 'Apalpador e software Productivity+ (Productivity Plus), da Renishaw, para programação de rotinas de medição integradas ao CAM' },
     ],
     explanation: 'A mesa é a superfície onde a peça ou o dispositivo é fixado. Os cursos indicam o deslocamento disponível em cada eixo da máquina; não definem, isoladamente, o tamanho máximo de uma peça. O comando CNC controla os movimentos programados. O apalpador e o Productivity+ são usados nas rotinas de medição informadas pela GTAM.',
   },
@@ -43,14 +43,17 @@ const machines: Machine[] = [
   },
   {
     id: 'machine-milling', path: 'maquinas/fresadora-ferramenteira/', name: 'Fresadora ferramenteira',
-    short: 'Fresamento convencional, furação e ajustes em operações de ferramentaria.',
+    short: 'Fresadora ISO 40 com cursos de 1.220 × 430 × 460 mm, avanço e leitura digital nos três eixos e capacidade de 450 kg sobre a mesa.',
     image: `${import.meta.env.BASE_URL}images/illustrative/conventional-milling.jpg`, alt: 'Operador trabalhando em uma fresadora universal para usinar uma peça de alumínio.',
     caption: 'Fresamento convencional de metal — imagem de arquivo ilustrativa; não retrata a equipe ou a oficina da GTAM.', credit: { label: 'Foto: U.S. Navy / Aaron Burden', href: 'https://commons.wikimedia.org/wiki/File:US_Navy_050517-N-7130B-018_Machinery_Repairman_3rd_Class_Kevin_Weeks_uses_a_universal_milling_machine_to_mill_a_piece_of_aluminum_in_the_machine_shop_aboard_the_Nimitz-class_aircraft_carrier_USS_Ronald_Reagan_(CVN_76).jpg', licenseLabel: 'Public Domain Mark 1.0', licenseHref: 'https://creativecommons.org/publicdomain/mark/1.0/' },
     facts: [
+      { label: 'Cone', value: 'ISO 40' },
+      { label: 'Curso do eixo X', value: '1.220 mm' }, { label: 'Curso do eixo Y', value: '430 mm' }, { label: 'Curso do eixo Z', value: '460 mm' },
+      { label: 'Avanço e leitura digital', value: 'Nos três eixos' }, { label: 'Peso admissível sobre a mesa', value: '450 kg' },
       { label: 'Tipo de operação', value: 'Fresamento convencional' },
       { label: 'Outras operações', value: 'Furação e ajustes' },
     ],
-    explanation: 'A fresadora ferramenteira permite aproximar a ferramenta de corte da peça por movimentos controlados pelo operador. A GTAM informou o uso desse equipamento para fresamento convencional, furação e ajustes. Marca, modelo e dimensões de trabalho ainda não foram confirmados.',
+    explanation: 'A fresadora ferramenteira permite aproximar a ferramenta de corte da peça por movimentos controlados pelo operador. A GTAM informou o uso desse equipamento para fresamento convencional, furação e ajustes. O cone ISO 40 identifica a interface de fixação da ferramenta. Os cursos e a capacidade de carga orientam a avaliação do serviço, junto à geometria e à fixação da peça.',
   },
 ];
 
@@ -63,7 +66,7 @@ function MachineCard({ machine }: { machine: Machine }) {
 }
 
 export function MachinesPage({ page }: { page: string }) {
-  if (page === 'machines') return <><a href="#conteudo" className="skip-link">Ir para o conteúdo</a><Header/><main id="conteudo" className="content-page"><ContentHero eyebrow="ESTRUTURA E CAPACIDADE" title="Máquinas da GTAM" description="Conheça os equipamentos usados em nossos trabalhos de ferramentaria e usinagem."/><section className="section"><div className="container machine-grid">{machines.map(machine => <MachineCard key={machine.id} machine={machine}/>)}</div></section><section className="machine-cta"><div className="container"><p>Tem um desenho, uma amostra ou uma necessidade de usinagem?</p><a className="button button-primary" href={company.whatsapp} target="_blank" rel="noopener noreferrer">Converse com a equipe <ArrowUpRight size={17}/></a></div></section></main><Footer/></>;
+  if (page === 'machines') return <><a href="#conteudo" className="skip-link">Ir para o conteúdo</a><Header/><main id="conteudo" className="content-page"><ContentHero eyebrow="ESTRUTURA E CAPACIDADE" title="Máquinas da GTAM" description="Conheça os equipamentos usados em nossos trabalhos de ferramentaria e usinagem."/><section className="section"><div className="container machine-grid">{machines.map(machine => <MachineCard key={machine.id} machine={machine}/>)}</div></section><section className="machine-partners container"><p className="eyebrow">REDE DE APOIO</p><h2>Capacidade ampliada para grandes demandas.</h2><p>Contamos com parceiros em retífica plana e cilíndrica, eletroerosão e centro de usinagem para dar suporte às grandes demandas dos nossos clientes.</p></section><section className="machine-cta"><div className="container"><p>Tem um desenho, uma amostra ou uma necessidade de usinagem?</p><a className="button button-primary" href={company.whatsapp} target="_blank" rel="noopener noreferrer">Converse com a equipe <ArrowUpRight size={17}/></a></div></section></main><Footer/></>;
 
   const machine = machines.find(item => item.id === page);
   if (!machine) return null;
